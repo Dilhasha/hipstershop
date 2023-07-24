@@ -1,9 +1,0 @@
-{
-    "cartservice": "CartService",
-    "inventoryservice": "InventoryService",
-    "paymentservice": "PaymentService",
-    "productservice": "ProductService",
-    "orderservice": "OrderService",
-    "shippingservice": "ShippingService",
-    "userservice": "UserService"
-}
