@@ -65,33 +65,6 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-name = "graphql"
-version = "1.9.0"
-scope = "testOnly"
-dependencies = [
-	{org = "ballerina", name = "auth"},
-	{org = "ballerina", name = "file"},
-	{org = "ballerina", name = "http"},
-	{org = "ballerina", name = "io"},
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "jwt"},
-	{org = "ballerina", name = "lang.array"},
-	{org = "ballerina", name = "lang.value"},
-	{org = "ballerina", name = "log"},
-	{org = "ballerina", name = "mime"},
-	{org = "ballerina", name = "oauth2"},
-	{org = "ballerina", name = "task"},
-	{org = "ballerina", name = "time"},
-	{org = "ballerina", name = "websocket"}
-]
-modules = [
-	{org = "ballerina", packageName = "graphql", moduleName = "graphql"},
-	{org = "ballerina", packageName = "graphql", moduleName = "graphql.parser"},
-	{org = "ballerina", packageName = "graphql", moduleName = "graphql.subgraph"}
-]
-
-[[package]]
-org = "ballerina"
 name = "http"
 version = "2.9.0"
 scope = "testOnly"
@@ -126,11 +99,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "io"
-<<<<<<< Updated upstream
-version = "1.4.1"
-=======
 version = "1.5.0"
->>>>>>> Stashed changes
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
@@ -307,19 +276,6 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-<<<<<<< Updated upstream
-name = "regex"
-version = "1.4.3"
-scope = "testOnly"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "lang.string"}
-]
-
-[[package]]
-org = "ballerina"
-=======
->>>>>>> Stashed changes
 name = "task"
 version = "2.4.0"
 scope = "testOnly"
@@ -360,34 +316,9 @@ dependencies = [
 ]
 
 [[package]]
-org = "ballerina"
-name = "websocket"
-version = "2.9.0"
-scope = "testOnly"
-dependencies = [
-	{org = "ballerina", name = "auth"},
-	{org = "ballerina", name = "constraint"},
-	{org = "ballerina", name = "http"},
-	{org = "ballerina", name = "io"},
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "jwt"},
-	{org = "ballerina", name = "lang.array"},
-	{org = "ballerina", name = "lang.runtime"},
-	{org = "ballerina", name = "lang.string"},
-	{org = "ballerina", name = "lang.value"},
-	{org = "ballerina", name = "log"},
-	{org = "ballerina", name = "oauth2"},
-	{org = "ballerina", name = "time"}
-]
-
-[[package]]
 org = "ballerinax"
 name = "jaeger"
-<<<<<<< Updated upstream
 version = "0.2.8"
-=======
-version = "0.3.0"
->>>>>>> Stashed changes
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
@@ -402,23 +333,12 @@ org = "microrts"
 name = "integration_tests"
 version = "1.0.0"
 dependencies = [
-	{org = "ballerina", name = "graphql"},
 	{org = "ballerina", name = "http"},
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "test"},
-	{org = "ballerinax", name = "jaeger"},
-	{org = "microrts", name = "static_analyzer"}
+	{org = "ballerinax", name = "jaeger"}
 ]
 modules = [
 	{org = "microrts", packageName = "integration_tests", moduleName = "integration_tests"}
-]
-
-[[package]]
-org = "microrts"
-name = "static_analyzer"
-version = "1.0.0"
-scope = "testOnly"
-modules = [
-	{org = "microrts", packageName = "static_analyzer", moduleName = "static_analyzer"}
 ]
 

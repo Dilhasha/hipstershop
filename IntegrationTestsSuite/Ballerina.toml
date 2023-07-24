@@ -2,9 +2,3 @@
 org="microrts"
 name="integration_tests"
 version="1.0.0"
-
-[[dependency]]
-org="microrts"
-name="static_analyzer"
-version="1.0.0"
-repository="local"

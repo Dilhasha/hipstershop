@@ -1,6 +1,5 @@
 import ballerina/test;
 import ballerina/http;
-import ballerinax/jaeger as _;
 
 http:Client userServiceClient = check new ("http://localhost:9231/userservice");
 

@@ -1,6 +1,5 @@
 import ballerina/test;
 import ballerina/http;
-import ballerinax/jaeger as _;
 
 http:Client orderServiceClient = check new ("http://localhost:9234/orderservice");
 

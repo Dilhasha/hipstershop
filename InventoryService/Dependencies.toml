@@ -93,11 +93,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "io"
-<<<<<<< Updated upstream
-version = "1.4.1"
-=======
 version = "1.5.0"
->>>>>>> Stashed changes
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
@@ -252,18 +248,6 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-<<<<<<< Updated upstream
-name = "regex"
-version = "1.4.3"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "lang.string"}
-]
-
-[[package]]
-org = "ballerina"
-=======
->>>>>>> Stashed changes
 name = "task"
 version = "2.4.0"
 dependencies = [
@@ -320,18 +304,9 @@ dependencies = [
 	{org = "ballerina", name = "http"},
 	{org = "ballerina", name = "io"},
 	{org = "ballerinai", name = "observe"},
-	{org = "ballerinax", name = "jaeger"},
-	{org = "microrts", name = "static_analyzer"}
+	{org = "ballerinax", name = "jaeger"}
 ]
 modules = [
 	{org = "dilhashanazeer", packageName = "InventoryService", moduleName = "InventoryService"}
-]
-
-[[package]]
-org = "microrts"
-name = "static_analyzer"
-version = "1.0.0"
-modules = [
-	{org = "microrts", packageName = "static_analyzer", moduleName = "static_analyzer"}
 ]
 
