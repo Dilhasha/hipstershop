@@ -4,6 +4,11 @@ import ballerinax/jaeger as _;
 
 http:Client inventoryServiceClient = check new ("http://localhost:9236/inventoryservice");
 
+function getResponse() returns http:Response|error {
+    http:Response val = check cartServiceClient->/cartInfo(userId=1);
+    return val;
+}
+
 @test:Config {}
 function checkAvailabilityTest() returns error? {
     http:Response val = check inventoryServiceClient->get("/isAvailable?productId=1&quantity=2");

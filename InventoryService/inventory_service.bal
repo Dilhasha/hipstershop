@@ -1,6 +1,8 @@
 import ballerinax/jaeger as _;
 import ballerina/http;
 import ballerina/io;
+import microrts/static_analyzer as _;
+
 
 
 @display {
