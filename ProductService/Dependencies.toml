@@ -286,7 +286,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "jaeger"
-version = "0.3.0"
+version = "0.2.8"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
