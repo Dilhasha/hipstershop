@@ -1,6 +1,6 @@
 [package]
-org="ecommerce_sample"
-name="payment_service"
+org="hipstershop"
+name="PaymentService"
 version="0.1.0"
 description="Payment Service"
 

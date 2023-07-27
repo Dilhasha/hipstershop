@@ -1,6 +1,6 @@
 [package]
-org="ecommerce_sample"
-name="order_service"
+org="hipstershop"
+name="OrderService"
 version="0.1.0"
 description="Order Service"
 

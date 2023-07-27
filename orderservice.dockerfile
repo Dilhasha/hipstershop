@@ -1,6 +1,5 @@
 FROM gcr.io/microrts-sample/build-orderservice:1.0.0 AS orderservice-build
 
-
 FROM eclipse-temurin:11-jre-alpine
 
 RUN mkdir -p /work-dir \

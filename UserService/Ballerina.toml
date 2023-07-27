@@ -1,6 +1,6 @@
 [package]
-org="ecommerce_sample"
-name="user_service"
+org="hipstershop"
+name="UserService"
 version="0.1.0"
 description="User Service"
 
