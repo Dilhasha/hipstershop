@@ -39,14 +39,14 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: false
-          files: cartservice.build.dockerfile
+          file: cartservice.build.dockerfile
           tags: hipstershop/cartservice-build
 
       - name: Build and Push Cartservice Docker image
         uses: docker/build-push-action@v2
         with:
           push: true
-          files: cartservice.dockerfile
+          file: cartservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_IMAGE }}:${{ env.TAG }}
 
       ## inventory service
