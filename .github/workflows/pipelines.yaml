@@ -41,7 +41,7 @@ jobs:
         with:
           push: true
           file: cartservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/{{env.CART_SERVICE_BUILD_IMAGE}}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
 
       - name: Build and Push Cartservice Docker image
         uses: docker/build-push-action@v2
