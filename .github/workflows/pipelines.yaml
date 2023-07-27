@@ -18,7 +18,6 @@ env:
   PRODUCT_SERVICE_BUILD_IMAGE: build-productservice
   PRODUCT_SERVICE_IMAGE: productservice
   SHIPPING_SERVICE_BUILD_IMAGE: build-shippingservice
-  SHIPPING_SERVICE_BUILD_IMAGE: build-shippingservice
   SHIPPING_SERVICE_IMAGE: shippingservice
   USER_SERVICE_BUILD_IMAGE: build-userservice
   USER_SERVICE_IMAGE: userservice
