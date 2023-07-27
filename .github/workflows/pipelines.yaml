@@ -40,7 +40,7 @@ jobs:
         with:
           push: false
           file: cartservice.build.dockerfile
-          tags: hipstershop/cartservice-build
+          tags: gcr.io/${{ env.PROJECT_ID }}/cartservice-build:latest
 
       - name: Build and Push Cartservice Docker image
         uses: docker/build-push-action@v2

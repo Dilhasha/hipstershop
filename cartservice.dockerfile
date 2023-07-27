@@ -1,4 +1,4 @@
-FROM hipstershop/cartservice-build AS cartservice-build
+FROM gcr.io/microrts-sample/cartservice-build:latest AS cartservice-build
 
 FROM eclipse-temurin:11-jre-alpine
 
