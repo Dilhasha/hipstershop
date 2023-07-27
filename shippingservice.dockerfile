@@ -1,4 +1,4 @@
-FROM hipstershop/shippingservice-build AS shippingservice-build
+FROM gcr.io/microrts-sample/build-shippingservice:1.0.0 AS shippingservice-build
 
 FROM eclipse-temurin:11-jre-alpine
 

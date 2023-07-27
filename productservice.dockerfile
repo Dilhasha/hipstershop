@@ -1,4 +1,4 @@
-FROM hipstershop/productservice-build AS productservice-build
+FROM gcr.io/microrts-sample/build-productservice:1.0.0 AS productservice-build
 
 FROM eclipse-temurin:11-jre-alpine
 

@@ -1,4 +1,5 @@
-FROM hipstershop/orderservice-build AS orderservice-build
+FROM gcr.io/microrts-sample/build-orderservice:1.0.0 AS orderservice-build
+
 
 FROM eclipse-temurin:11-jre-alpine
 

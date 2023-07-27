@@ -9,11 +9,18 @@ env:
   PROJECT_ID: microrts-sample
   CART_SERVICE_IMAGE: cartservice
   CART_SERVICE_BUILD_IMAGE: build-cartservice
+  INVENTORY_SERVICE_BUILD_IMAGE: build-inventoryservice
   INVENTORY_SERVICE_IMAGE: inventoryservice
+  PAYMENT_SERVICE_BUILD_IMAGE: build-paymentservice
   PAYMENT_SERVICE_IMAGE: paymentservice
+  ORDER_SERVICE_BUILD_IMAGE: build-orderservice
   ORDER_SERVICE_IMAGE: orderservice
+  PRODUCT_SERVICE_BUILD_IMAGE: build-productservice
   PRODUCT_SERVICE_IMAGE: productservice
+  SHIPPING_SERVICE_BUILD_IMAGE: build-shippingservice
+  SHIPPING_SERVICE_BUILD_IMAGE: build-shippingservice
   SHIPPING_SERVICE_IMAGE: shippingservice
+  USER_SERVICE_BUILD_IMAGE: build-userservice
   USER_SERVICE_IMAGE: userservice
   TAG: 1.0.0
 
@@ -35,8 +42,9 @@ jobs:
           registry: gcr.io
           username: _json_key
           password: ${{ secrets.GKE_SA_KEY }}
+
       ## cart service
-      - name: Build hipstershop/cartservice-build Docker image
+      - name: Build cartservice-build Docker image
         uses: docker/build-push-action@v2
         with:
           push: true
@@ -51,7 +59,7 @@ jobs:
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_IMAGE }}:${{ env.TAG }}
 
       ## inventory service
-      - name: Build hipstershop/inventoryservice-build Docker image
+      - name: Build inventoryservice-build Docker image
         uses: docker/build-push-action@v2
         with:
           push: true
@@ -64,3 +72,78 @@ jobs:
           push: true
           file: inventoryservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.INVENTORY_SERVICE_IMAGE }}:${{ env.TAG }}
+    
+      ## order service
+      - name: Build orderservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: orderservice.build.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.ORDER_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+
+      - name: Build and Push orderservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: orderservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.ORDER_SERVICE_IMAGE }}:${{ env.TAG }}
+
+      ## payment service
+      - name: Build paymentservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: paymentservice.build.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PAYMENT_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+
+      - name: Build and Push paymentservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: paymentservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PAYMENT_SERVICE_IMAGE }}:${{ env.TAG }}
+
+      ## product service
+      - name: Build productservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: productservice.build.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PRODUCT_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+
+      - name: Build and Push productservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: productservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PRODUCT_SERVICE_IMAGE }}:${{ env.TAG }}
+
+      ## shipping service
+      - name: Build shippingservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: shippingservice.build.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SHIPPING_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+
+      - name: Build and Push shippingservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: shippingservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SHIPPING_SERVICE_IMAGE }}:${{ env.TAG }}
+
+      ## user service
+      - name: Build userservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: userservice.build.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+
+      - name: Build and Push userservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: userservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_IMAGE }}:${{ env.TAG }}

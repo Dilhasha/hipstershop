@@ -1,4 +1,5 @@
-FROM hipstershop/paymentservice-build AS paymentservice-build
+FROM gcr.io/microrts-sample/build-paymentservice:1.0.0 AS paymentservice-build
+
 
 FROM eclipse-temurin:11-jre-alpine
 
