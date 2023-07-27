@@ -1,4 +1,4 @@
-FROM hipstershop/inventoryservice-build AS inventoryservice-build
+FROM gcr.io/microrts-sample/build-inventoryservice:1.0.0 AS inventoryservice-build
 
 FROM eclipse-temurin:11-jre-alpine
 
