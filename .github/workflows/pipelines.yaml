@@ -34,7 +34,7 @@ jobs:
           registry: gcr.io
           username: _json_key
           password: ${{ secrets.GKE_SA_KEY }}
-
+      ## cart service
       - name: Build hipstershop/cartservice-build Docker image
         uses: docker/build-push-action@v2
         with:
@@ -49,3 +49,17 @@ jobs:
           files: cartservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_IMAGE }}:${{ env.TAG }}
 
+      ## inventory service
+      - name: Build hipstershop/inventoryservice-build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: false
+          file: inventoryservice.build.dockerfile
+          tags: hipstershop/inventoryservice-build
+
+      - name: Build and Push inventoryservice Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: inventoryservice.dockerfile
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.INVENTORY_SERVICE_IMAGE }}:${{ env.TAG }}
