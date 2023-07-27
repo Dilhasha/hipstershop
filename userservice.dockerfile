@@ -1,4 +1,4 @@
-FROM gcr.io/microrts-sample/build--userservice:1.0.0 AS userservice-build
+FROM gcr.io/microrts-sample/build-userservice:1.0.0 AS userservice-build
 
 FROM eclipse-temurin:11-jre-alpine
 
