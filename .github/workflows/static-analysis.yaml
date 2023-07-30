@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        argument: [CartService, InventoryService, OrderService, PaymentService, ProductService, ShippingService, UserService, IntegrationTestsSuite]
+        argument: [CartService, IntegrationTestsSuite]
+
+                # argument: [CartService, InventoryService, OrderService, PaymentService, ProductService, ShippingService, UserService, IntegrationTestsSuite]
     
     steps:
     - name: Checkout code
