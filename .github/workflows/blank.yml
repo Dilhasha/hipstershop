@@ -1,0 +1,25 @@
+name: Perform static analysis of code
+
+on:
+  workflow_dispatch:
+
+jobs:
+  edit-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set BALLERINA_DEV_CENTRAL environment variable
+      run: echo "BALLERINA_DEV_CENTRAL=true" >> $GITHUB_ENV
+
+    - name: Edit file
+      run: |
+        echo "Your content or change here"
+
+    - name: Ballerina Build
+      uses: ballerina-platform/ballerina-action@master
+      with:
+        args: 
+          build
