@@ -40,37 +40,87 @@ jobs:
       env: 
         WORKING_DIR: ${{ matrix.argument }}
         
-    # - name: Upload test_svc_mappings as artifact if it exists
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: ${{ matrix.argument }}-test_svc_mappings
-    #     path: ${{ matrix.argument }}/test_svc_mappings.json
+    - name: Upload test_svc_mappings as artifact if it exists
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.argument }}-test_svc_mappings
+        path: ${{ matrix.argument }}/test_svc_mappings.json
     
-    # - name: Upload svc_path_mappings as artifact if it exists
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: ${{ matrix.argument }}-svc_path_mappings
-    #     path: ${{ matrix.argument }}/svc_path_mappings.json
+    - name: Upload svc_path_mappings as artifact if it exists
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.argument }}-svc_path_mappings
+        path: ${{ matrix.argument }}/svc_path_mappings.json
 
-    - name: Download static_analysis_results.json
+
+  combine-artifacts:
+    needs: static-analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    # Download all artifacts (assuming they've already been generated in previous jobs or workflows)
+    - name: Download all artifacts
       uses: actions/download-artifact@v2
       with:
-        name: static-analysis-results
-        path: static_analysis_results.json
-      continue-on-error: true  # This ensures the workflow continues even if the artifact is not found (e.g., on the first run).
-      
-    - name: Construct and append to file
-      run: |
-        [[ -f "${{ matrix.argument }}/test_svc_mappings.json" ]] && test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json") || test_svc_content=""
-        [[ -f "${{ matrix.argument }}/svc_path_mappings.json" ]] && svc_path_content=$(cat "${{ matrix.argument }}/svc_path_mappings.json") || svc_path_content=""
+        path: artifacts/
 
-        echo "\"${{ matrix.argument }}\" : {\"testToSvcMapping\" : \"$test_svc_content\", \"svcToPathMapping\": \"$svc_path_content\"}," >> static_analysis_results.json
+    # Install necessary tools (jq for JSON manipulation)
+    - name: Install jq
+      run: sudo apt-get install jq
+
+    # Combine artifact contents
+    - name: Combine and construct single file
+      run: |
+        # declare -A services
+
+        for test_mapping in artifacts/*_test_svc_mappings.json; do
+            service_name=$(basename $test_mapping | cut -d'_' -f1)
+            svc_path_mapping="artifacts/${service_name}_svc_path_mappings.json"
+            
+            test_mapping_content=$(jq -c . $test_mapping)
+            svc_path_mapping_content=$(jq -c . $svc_path_mapping)
+
+            services[$service_name]="{\"${service_name}\": {\"testToSvcMapping\": $test_mapping_content, \"svcToPathMapping\": $svc_path_mapping_content}}"
+        done
+
+        combined_content="["
+        for key in "${!services[@]}"; do
+            combined_content+="${services[$key]},"
+        done
+        combined_content=${combined_content%,} # Removing the trailing comma
+        combined_content+="]"
+
+        echo "$combined_content" > combined_file.json
 
     - name: Upload mappings
       uses: actions/upload-artifact@v2
       with:
-        name: static_analysis_results
-        path: static_analysis_results.json
+        name: combined_file.json
+        path: combined_file.json
+
+
+    # - name: Download static_analysis_results.json
+    #   uses: actions/download-artifact@v2
+    #   with:
+    #     name: static-analysis-results
+    #     path: static_analysis_results.json
+    #   continue-on-error: true  # This ensures the workflow continues even if the artifact is not found (e.g., on the first run).
+      
+    # - name: Construct and append to file
+    #   run: |
+    #     [[ -f "${{ matrix.argument }}/test_svc_mappings.json" ]] && test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json") || test_svc_content=""
+    #     [[ -f "${{ matrix.argument }}/svc_path_mappings.json" ]] && svc_path_content=$(cat "${{ matrix.argument }}/svc_path_mappings.json") || svc_path_content=""
+
+    #     echo "\"${{ matrix.argument }}\" : {\"testToSvcMapping\" : \"$test_svc_content\", \"svcToPathMapping\": \"$svc_path_content\"}," >> static_analysis_results.json
+
+    # - name: Upload mappings
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: static_analysis_results
+    #     path: static_analysis_results.json
 
     # - id: check-file
     #   nam xfcxswfgçbn e: Check if file exists
