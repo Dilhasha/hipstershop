@@ -43,13 +43,13 @@ jobs:
     - name: Upload test_svc_mappings as artifact if it exists
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.argument }}-test_svc_mappings
+        name: ${{ matrix.argument }}-test_svc_mappings.json
         path: ${{ matrix.argument }}/test_svc_mappings.json
     
     - name: Upload svc_path_mappings as artifact if it exists
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.argument }}-svc_path_mappings
+        name: ${{ matrix.argument }}-svc_path_mappings.json
         path: ${{ matrix.argument }}/svc_path_mappings.json
 
 
