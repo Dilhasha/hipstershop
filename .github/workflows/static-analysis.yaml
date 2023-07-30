@@ -69,7 +69,7 @@ jobs:
     - name: Upload mappings
       uses: actions/upload-artifact@v2
       with:
-        name: static_analysis_results.json
+        name: static_analysis_results
         path: static_analysis_results.json
 
     # - id: check-file
