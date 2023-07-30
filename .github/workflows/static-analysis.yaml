@@ -54,8 +54,8 @@ jobs:
 
     - name: Construct and append to file
       run: |
-        test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json")
-        svc_path_content=$(cat "${{ matrix.argument }}/svc_path_mappings.json")
+        [[ -f "${{ matrix.argument }}/test_svc_mappings.json" ]] && test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json") || test_svc_content=""
+        [[ -f "${{ matrix.argument }}/svc_path_mappings.json" ]] && svc_path_content=$(cat "${{ matrix.argument }}/svc_path_mappings.json") || svc_path_content=""
 
         echo "\"${{ matrix.argument }}\" : {\"testToSvcMapping\" : \"$test_svc_content\", \"svcToPathMapping\": \"$svc_path_content\"}," >> static_analysis_results.json
 
