@@ -27,7 +27,9 @@ jobs:
                 echo "import microrts/static_analyzer as _;" | cat - "$bal_file" > temp && mv temp "$bal_file"
             fi
         fi
-    
+    - name: Set BALLERINA_DEV_CENTRAL environment variable
+      run: echo "BALLERINA_DEV_CENTRAL=true" >> $GITHUB_ENV
+
     - name: Ballerina Build with static analyzer
       uses: ballerina-platform/ballerina-action@master
       with:
