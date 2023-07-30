@@ -25,6 +25,44 @@ jobs:
                 echo "import microrts/static_analyzer as _;" | cat - "$bal_file" > temp && mv temp "$bal_file"
             fi
         done
+  
+    - name: Execute 'bal build' and create JSON 
+      run: |
+        # Install jq
+        sudo apt-get install jq
+
+        # Initialize result json array
+        result_json='[]'
+
+        # Loop through directories containing .toml files
+        for dir in $(find . -type f -name "*.toml" -exec dirname {} \; | sort -u); do
+            cd "$dir"
+
+            # Execute bal build
+            bal build
+
+            # Assuming that bal build generates the .json files in the same directory
+            if [[ -f "test_svc_mappings.json" && -f "svc_path_mappings.json" ]]; then
+                test_svc_mappings=$(jq -r '.' test_svc_mappings.json)
+                svc_path_mappings=$(jq -r '.' svc_path_mappings.json)
+
+                # Create json for the current directory
+                current_json=$(jq -n \
+                                --arg dir "$dir" \
+                                --arg test_svc_mappings "$test_svc_mappings" \
+                                --arg svc_path_mappings "$svc_path_mappings" \
+                                '{($dir): {"testToSvcMapping": $test_svc_mappings, "svcToPathMapping": $svc_path_mappings}}')
+
+                # Add the current json to the result array
+                result_json=$(echo "$result_json" | jq ". += [$current_json]")
+
+                cd ..
+            fi
+        done
+
+        # Print the result json array
+        echo "$result_json" | jq '.'
+
 
     - name: Ballerina Build
       uses: ballerina-platform/ballerina-action@master
