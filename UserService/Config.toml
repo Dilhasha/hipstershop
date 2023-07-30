@@ -3,5 +3,5 @@ tracingEnabled=true
 tracingProvider="jaeger"
 
 [ballerinax.jaeger]
-agentHostname="localhost"  # Optional Configuration. Default value is localhost
+agentHostname="jaeger-service.jaeger-observe.svc.cluster.local"  # Optional Configuration. Default value is 34.136.11.235
 agentPort=4317             # Optional Configuration. Default value is 55680

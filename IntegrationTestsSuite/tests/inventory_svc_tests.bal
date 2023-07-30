@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client inventoryServiceClient = check new ("http://localhost:9236/inventoryservice");
+http:Client inventoryServiceClient = check new ("http://34.136.11.235/inventoryservice");
 
 function getResponse() returns http:Response|error {
     http:Response val = check cartServiceClient->/cartInfo(userId=1);

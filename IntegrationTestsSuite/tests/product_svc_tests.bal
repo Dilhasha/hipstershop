@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client productServiceClient = check new ("http://localhost:9232/productservice");
+http:Client productServiceClient = check new ("http://34.136.11.235/productservice");
 
 
 @test:Config {}

@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client shippingServiceClient = check new ("http://localhost:9237/shippingservice");
+http:Client shippingServiceClient = check new ("http://34.136.11.235/shippingservice");
 
 @test:Config {}
 function placeShipmentTest() returns error? {

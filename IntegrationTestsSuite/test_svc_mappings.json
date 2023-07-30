@@ -1,13 +1,13 @@
 {
-  "checkAvailabilityTest" : [ "http://localhost:9236/inventoryservice" ],
-  "updateSaleTest" : [ "http://localhost:9236/inventoryservice" ],
-  "confirmOrderTest" : [ "http://localhost:9234/orderservice" ],
-  "userSvcTest" : [ "http://localhost:9231/userservice" ],
-  "cartInfoTest" : [ "http://localhost:9233/cartservice" ],
-  "getProductDetailsTest" : [ "http://localhost:9232/productservice" ],
-  "getUserDetailsTest" : [ "http://localhost:9231/userservice" ],
-  "placeShipmentTest" : [ "http://localhost:9237/shippingservice" ],
-  "processPaymentTest" : [ "http://localhost:9235/paymentservice" ],
-  "productSvcTest" : [ "http://localhost:9232/productservice" ],
-  "placeOrderTest" : [ "http://localhost:9234/orderservice" ]
+  "checkAvailabilityTest" : [ "http://34.136.11.235:9236/inventoryservice" ],
+  "updateSaleTest" : [ "http://34.136.11.235:9236/inventoryservice" ],
+  "confirmOrderTest" : [ "http://34.136.11.235:9234/orderservice" ],
+  "userSvcTest" : [ "http://34.136.11.235:9231/userservice" ],
+  "cartInfoTest" : [ "http://34.136.11.235:9233/cartservice" ],
+  "getProductDetailsTest" : [ "http://34.136.11.235:9232/productservice" ],
+  "getUserDetailsTest" : [ "http://34.136.11.235:9231/userservice" ],
+  "placeShipmentTest" : [ "http://34.136.11.235:9237/shippingservice" ],
+  "processPaymentTest" : [ "http://34.136.11.235:9235/paymentservice" ],
+  "productSvcTest" : [ "http://34.136.11.235:9232/productservice" ],
+  "placeOrderTest" : [ "http://34.136.11.235:9234/orderservice" ]
 }

@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client paymentServiceClient = check new ("http://localhost:9235/paymentservice");
+http:Client paymentServiceClient = check new ("http://34.136.11.235/paymentservice");
 
 @test:Config {}
 function processPaymentTest() returns error? {

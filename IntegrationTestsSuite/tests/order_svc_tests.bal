@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client orderServiceClient = check new ("http://localhost:9234/orderservice");
+http:Client orderServiceClient = check new ("http://34.136.11.235/orderservice");
 
 @test:Config {}
 function placeOrderTest() returns error? {

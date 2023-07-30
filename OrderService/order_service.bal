@@ -2,10 +2,10 @@ import ballerinax/jaeger as _;
 import ballerina/http;
 import ballerina/io;
 
-http:Client userServiceClient = check new ("http://localhost:9231/userservice");
-http:Client shippingServiceClient = check new ("http://localhost:9237/shippingservice");
-http:Client cartServiceClient = check new ("http://localhost:9233/cartservice");
-http:Client paymentServiceClient = check new ("http://localhost:9235/paymentservice");
+http:Client userServiceClient = check new ("http://34.136.11.235:9231/userservice");
+http:Client shippingServiceClient = check new ("http://34.136.11.235:9237/shippingservice");
+http:Client cartServiceClient = check new ("http://34.136.11.235:9233/cartservice");
+http:Client paymentServiceClient = check new ("http://34.136.11.235:9235/paymentservice");
 
 @display {
     label: "orderservice"

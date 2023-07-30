@@ -1,7 +1,7 @@
 import ballerina/test;
 import ballerina/http;
 
-http:Client cartServiceClient = check new ("http://localhost:9233/cartservice");
+http:Client cartServiceClient = check new ("http://34.136.11.235:9233/cartservice");
 
 @test:Config
 {}

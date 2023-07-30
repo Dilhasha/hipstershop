@@ -12,7 +12,7 @@ type Profile record {|
     int age;
 |};
 
-http:Client cartServiceClient = check new ("http://localhost:9233/cartservice");
+http:Client cartServiceClient = check new ("http://34.136.11.235/cartservice");
 
 
 @test:Config {}
@@ -26,7 +26,7 @@ function cartInfoTest() returns error? {
 // @test:Config {}
 // public function testFunc() returns error? {
 //     // Creates a new client with the backend URL.
-//     graphql:Client graphqlClient = check new ("localhost:9090/graphql");
+//     graphql:Client graphqlClient = check new ("34.136.11.235:9090/graphql");
 
 //     string document = "{ profile { name, age } }";
 

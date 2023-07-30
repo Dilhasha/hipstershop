@@ -22,7 +22,7 @@ metricsReporter=\"prometheus\"\n \
 tracingEnabled=true\n\
 tracingProvider=\"jaeger\"\n \
 [ballerinax.jaeger]\n \
-agentHostname=\"10.128.0.5\"\n \
+agentHostname=\"jaeger-service.jaeger-observe.svc.cluster.local\"\n \
 agentPort=4317\n"
 
 ENV JAVA_TOOL_OPTIONS "-XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -XX:TieredStopAtLevel=1"

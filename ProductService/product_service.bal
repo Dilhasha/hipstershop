@@ -18,7 +18,7 @@ service /productservice on new http:Listener(9232) {
 
     resource function post buyProduct(int productId) returns error?{    
         // Call inventory to update product stock
-        http:Client clientEp = check new("http://localhost:9090/checkout");
+        http:Client clientEp = check new("http://34.136.11.235:9090/checkout");
         http:Request req = new;
         req.setPayload({"id": 1, "item": "TShirt", "quantity": 100});
         http:Response res = check clientEp->post("/checkout", req);
