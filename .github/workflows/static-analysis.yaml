@@ -14,6 +14,14 @@ jobs:
     - name: Set BALLERINA_DEV_CENTRAL environment variable
       run: echo "BALLERINA_DEV_CENTRAL=true" >> $GITHUB_ENV
 
+    - name: Ballerina Push
+      uses: ballerina-platform/ballerina-action@master
+      with:
+        args: 
+          build 
+      env: 
+        WORKING_DIR: CartService
+        
     - name: Modify .bal files in directories with TOML files
       run: |
         # Loop through directories containing .toml files
