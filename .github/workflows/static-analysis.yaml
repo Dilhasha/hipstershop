@@ -43,26 +43,28 @@ jobs:
       with:
         name: ${{ matrix.argument }}-test_svc_mappings
         path: ${{ matrix.argument }}/test_svc_mappings.json
-      # if: ${{ steps.check-file.outputs.exists == 'true' }}
-
-    # - id: check-file
-    #   name: Check if file exists
-    #   run: |
-    #     if [[ -f "${{ matrix.argument }}/test_svc_mappings.json" ]]; then
-    #       echo "::set-output name=exists::true"
-    #     else
-    #       echo "::set-output name=exists::false"
-    #     fi
     
-    - name: Upload test_svc_mappings as artifact if it exists
+    - name: Upload svc_path_mappings as artifact if it exists
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.argument }}-svc_path_mappings
         path: ${{ matrix.argument }}/svc_path_mappings.json
-    #   if: ${{ steps.check-file.outputs.exists == 'true' }}
+
+    - name: Construct and append to file
+      run: |
+        test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json")
+        svc_path_content=$(cat "${{ matrix.argument }}/svc_path_mappings.json")
+
+        echo "\"${{ matrix.argument }}\" : {\"testToSvcMapping\" : \"$test_svc_content\", \"svcToPathMapping\": \"$svc_path_content\"}," >> static_analysis_results.json
+
+    - name: Upload mappings
+      uses: actions/upload-artifact@v2
+      with:
+        name: static_analysis_results.json
+        path: static_analysis_results.json
 
     # - id: check-file
-    #   name: Check if file exists
+    #   nam xfcxswfgçbn e: Check if file exists
     #   run: |
     #     if [[ -f "${{ matrix.argument }}/svc_path_mappings.json" ]]; then
     #       echo "::set-output name=exists::true"
