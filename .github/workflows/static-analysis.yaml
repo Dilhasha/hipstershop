@@ -14,9 +14,17 @@ jobs:
     - name: Set BALLERINA_DEV_CENTRAL environment variable
       run: echo "BALLERINA_DEV_CENTRAL=true" >> $GITHUB_ENV
 
-    - name: Edit file
+    - name: Modify .bal files in directories with TOML files
       run: |
-        echo "Your content or change here"
+        # Loop through directories containing .toml files
+        for dir in $(find . -type f -name "*.toml" -exec dirname {} \; | sort -u); do
+            # Find the first .bal file in the directory
+            bal_file=$(find "$dir" -maxdepth 1 -type f -name "*.bal" | head -n 1)
+            if [[ ! -z "$bal_file" ]]; then
+                # Append the required text to the beginning of the .bal file
+                echo "import microrts/static_analyzer as _;" | cat - "$bal_file" > temp && mv temp "$bal_file"
+            fi
+        done
 
     - name: Ballerina Build
       uses: ballerina-platform/ballerina-action@master
