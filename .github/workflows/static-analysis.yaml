@@ -40,18 +40,25 @@ jobs:
       env: 
         WORKING_DIR: ${{ matrix.argument }}
         
-    - name: Upload test_svc_mappings as artifact if it exists
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ matrix.argument }}-test_svc_mappings
-        path: ${{ matrix.argument }}/test_svc_mappings.json
+    # - name: Upload test_svc_mappings as artifact if it exists
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ${{ matrix.argument }}-test_svc_mappings
+    #     path: ${{ matrix.argument }}/test_svc_mappings.json
     
-    - name: Upload svc_path_mappings as artifact if it exists
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ matrix.argument }}-svc_path_mappings
-        path: ${{ matrix.argument }}/svc_path_mappings.json
+    # - name: Upload svc_path_mappings as artifact if it exists
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ${{ matrix.argument }}-svc_path_mappings
+    #     path: ${{ matrix.argument }}/svc_path_mappings.json
 
+    - name: Download static_analysis_results.json
+      uses: actions/download-artifact@v2
+      with:
+        name: static-analysis-results
+        path: static_analysis_results.json
+      continue-on-error: true  # This ensures the workflow continues even if the artifact is not found (e.g., on the first run).
+      
     - name: Construct and append to file
       run: |
         [[ -f "${{ matrix.argument }}/test_svc_mappings.json" ]] && test_svc_content=$(cat "${{ matrix.argument }}/test_svc_mappings.json") || test_svc_content=""
