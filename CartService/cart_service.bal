@@ -2,7 +2,7 @@ import ballerinax/jaeger as _;
 import ballerina/http;
 import ballerina/io;
 
-http:Client productServiceClient = check new ("http://34.136.11.235:9232/productservice");
+http:Client productServiceClient = check new ("http://34.136.11.235/productservice");
 
 @display {
     label: "cartservice"
