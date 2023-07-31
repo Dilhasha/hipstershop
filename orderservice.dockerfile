@@ -27,4 +27,4 @@ agentPort=4317\n"
 
 ENV JAVA_TOOL_OPTIONS "-XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -XX:TieredStopAtLevel=1"
 
-CMD [ "java", "-jar", "OrderService.jar"]
+CMD [ "java", "-jar", "OrderService.jar", "observabilityIncluded=true"]

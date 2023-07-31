@@ -27,4 +27,4 @@ agentPort=4317\n"
 
 ENV JAVA_TOOL_OPTIONS "-XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -XX:TieredStopAtLevel=1"
 
-CMD [ "java", "-jar", "InventoryService.jar"]
+CMD [ "java", "-jar", "InventoryService.jar", "observabilityIncluded=true"]
