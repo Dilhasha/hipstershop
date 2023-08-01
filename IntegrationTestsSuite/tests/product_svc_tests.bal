@@ -15,3 +15,40 @@ function getProductDetailsTest() returns error? {
     http:Response val = check productServiceClient->get("/productInfo?productId=1");
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
 }
+
+
+@test:Config {}
+function productSvcTest1() returns error? {
+    http:Response val = check productServiceClient->get("/productCatalog");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
+
+@test:Config {}
+function getProductDetailsTest1() returns error? {
+    http:Response val = check productServiceClient->get("/productInfo?productId=1");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
+
+@test:Config {}
+function productSvcTest2() returns error? {
+    http:Response val = check productServiceClient->get("/productCatalog");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
+
+@test:Config {}
+function getProductDetailsTest2() returns error? {
+    http:Response val = check productServiceClient->get("/productInfo?productId=1");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
+
+@test:Config {}
+function productSvcTest3() returns error? {
+    http:Response val = check productServiceClient->get("/productCatalog");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
+
+@test:Config {}
+function getProductDetailsTest3() returns error? {
+    http:Response val = check productServiceClient->get("/productInfo?productId=1");
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}

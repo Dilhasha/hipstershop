@@ -21,15 +21,32 @@ function cartInfoTest() returns error? {
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
 }
 
+@test:Config {}
+function cartInfoTest1() returns error? {
+    http:Response val = check getResponse();
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
 
+@test:Config {}
+function cartInfoTest2() returns error? {
+    http:Response val = check getResponse();
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
 
-// @test:Config {}
-// public function testFunc() returns error? {
-//     // Creates a new client with the backend URL.
-//     graphql:Client graphqlClient = check new ("34.136.11.235:9090/graphql");
+@test:Config {}
+function cartInfoTest3() returns error? {
+    http:Response val = check getResponse();
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
 
-//     string document = "{ profile { name, age } }";
+@test:Config {}
+function cartInfoTest4() returns error? {
+    http:Response val = check getResponse();
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
 
-//     ProfileResponse response = check graphqlClient->execute(document);
-//     io:println(response.data.profile);
-// }
+@test:Config {}
+function cartInfoTest5() returns error? {
+    http:Response val = check getResponse();
+    test:assertEquals(val.statusCode, 200, "Status code should be 200");
+}
