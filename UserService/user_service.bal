@@ -8,6 +8,7 @@ import ballerina/http;
 service /userservice on new http:Listener(9231) {
 
     resource function get userInfo(int userId) returns json {
+        //test
         return {"id": 123, "name": "John Doe"};
     }
 

@@ -8,7 +8,7 @@ import ballerina/http;
 service /shippingservice on new http:Listener(9237) {
 
     resource function post shipment(int orderId) returns int {
-        // Return shipment id
+        // Return shipment id value
         return 1;
     }
 
