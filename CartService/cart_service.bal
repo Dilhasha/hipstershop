@@ -14,7 +14,7 @@ service /cartservice on new http:Listener(9233) {
     }
 
     resource function get cartInfo(int userId) returns json {    
-        io:println("checkout the cart for this user id: " + userId.toString());
+        io:println("checkout the cart for id: " + userId.toString());
         // get card and get product id
         return getProductData(1);
     }
