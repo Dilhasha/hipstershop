@@ -27,5 +27,5 @@ function getProductData(int productId) returns json {
     } else {
         io:println("status: " + val.statusCode.toString());
     }
-    return { "productId": productId, "productName": "MacBook Pro", "price": 2000.00 };
+    return { "productId": productId, "productName": "MacBook Pro1", "price": 2000.00 };
 }
