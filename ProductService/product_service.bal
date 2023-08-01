@@ -23,7 +23,7 @@ service /productservice on new http:Listener(9232) {
         req.setPayload({"id": 1, "item": "TShirt", "quantity": 100});
         http:Response res = check clientEp->post("/checkout", req);
         if (res.statusCode == 200) {
-            io:println("Product purchased successfully");
+            io:println("Product was purchased successfully");
         } else {
             io:println("Product purchase failed");
         }

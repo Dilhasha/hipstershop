@@ -12,6 +12,6 @@ service /inventoryservice on new http:Listener(9236) {
     }
 
     resource function post updateSale(int productId, int quantity) {    
-        io:println("Inventory updated for product id: " + productId.toString() + " quantity: " + quantity.toString());
+        io:println("Inventory update for product id: " + productId.toString() + " quantity: " + quantity.toString());
     }
 }
