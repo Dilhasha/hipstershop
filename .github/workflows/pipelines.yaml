@@ -151,4 +151,4 @@ jobs:
       
       - name: Send POST request to endpoint
         run: |
-          time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=${{ REPO }}&branchName=${{ BRANCH }}&observabilityURL=http://34.136.11.235"
+          time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=$REPO&branchName=$BRANCH&observabilityURL=http://34.136.11.235"
