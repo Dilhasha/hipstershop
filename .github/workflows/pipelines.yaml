@@ -3,7 +3,7 @@ name: Build and Push Docker images to GCR
 on:
   push:
     branches:
-      - simple-microservices
+      - 58tests
 
 env:
   PROJECT_ID: microrts-sample
@@ -21,7 +21,9 @@ env:
   SHIPPING_SERVICE_IMAGE: shippingservice
   USER_SERVICE_BUILD_IMAGE: build-userservice
   USER_SERVICE_IMAGE: userservice
-  TAG: 1.0.0
+  TAG: 1.0.1
+  BRANCH: 58tests
+  REPO: Dilhasha/hipstershop
 
 jobs:
   setup-build-publish:
@@ -146,3 +148,7 @@ jobs:
           push: true
           file: userservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_IMAGE }}:${{ env.TAG }}
+      
+      - name: Send POST request to endpoint
+        run: |
+          time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=${{ REPO }}&branchName=${{ BRANCH }}&observabilityURL=http://34.136.11.235"
