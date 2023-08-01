@@ -60,7 +60,7 @@ function initiatePayment(int orderId) returns int {
 function initiateShipment(int orderId) returns int {
     http:Response|error val = shippingServiceClient->post("/shipment?orderId=" + orderId.toString(), {});
     if val is error {
-        io:println("Error in initiating shipment");
+        io:println("Error in initiating shipment for the orderId" + orderId.toBalString());
     }
     // extract shipmentId and return
     return 1;
