@@ -1,7 +1,7 @@
 name: Build and Push Docker images to GCR
 
 on:
-  push:
+  pull_request:
     branches:
       - 58tests
 
@@ -24,6 +24,8 @@ env:
   TAG: 1.0.1
   BRANCH: 58tests
   REPO: Dilhasha/hipstershop
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+
 
 jobs:
   setup-build-publish:
@@ -33,6 +35,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+        # Do unit tests
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -151,4 +155,4 @@ jobs:
       
       - name: Send POST request to endpoint
         run: |
-          time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=$REPO&branchName=$BRANCH&observabilityURL=http://34.136.11.235"
+          time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=$REPO&pr=$PR_NUMBER&observabilityURL=http://34.136.11.235"
