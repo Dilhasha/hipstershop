@@ -4,12 +4,6 @@ import ballerina/lang.runtime;
 
 http:Client inventoryServiceClient = check new ("http://34.136.11.235/inventoryservice");
 
-function getResponse() returns http:Response|error {
-    runtime:sleep(10);
-    http:Response val = check cartServiceClient->/cartInfo(userId=1);
-    return val;
-}
-
 @test:Config {}
 function checkAvailabilityTest() returns error? {
     runtime:sleep(10);
