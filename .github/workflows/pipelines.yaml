@@ -21,8 +21,7 @@ env:
   SHIPPING_SERVICE_IMAGE: shippingservice
   USER_SERVICE_BUILD_IMAGE: build-userservice
   USER_SERVICE_IMAGE: userservice
-  TAG: 1.0.1
-  BRANCH: 58tests
+  TAG: 1.0.4
   REPO: Dilhasha/hipstershop
   PR_NUMBER: ${{ github.event.pull_request.number }}
 
@@ -153,6 +152,6 @@ jobs:
           file: userservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_IMAGE }}:${{ env.TAG }}
       
-      - name: Send POST request to endpoint
+      - name: Perform static analysis and record details for this PR
         run: |
           time curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=$REPO&pr=$PR_NUMBER&observabilityURL=http://34.136.11.235"
