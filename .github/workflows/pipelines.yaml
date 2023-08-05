@@ -3,7 +3,7 @@ name: Build and Push Docker images to GCR
 on:
   pull_request:
     branches:
-      - 58tests
+      - dev
 
 env:
   PROJECT_ID: microrts-sample
