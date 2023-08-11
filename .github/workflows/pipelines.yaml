@@ -53,7 +53,7 @@ jobs:
         with:
           push: true
           file: cartservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.CART_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push Cartservice Docker image
         uses: docker/build-push-action@v2
@@ -68,7 +68,7 @@ jobs:
         with:
           push: true
           file: inventoryservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.INVENTORY_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.INVENTORY_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push inventoryservice Docker image
         uses: docker/build-push-action@v2
@@ -83,7 +83,7 @@ jobs:
         with:
           push: true
           file: orderservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.ORDER_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.ORDER_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push orderservice Docker image
         uses: docker/build-push-action@v2
@@ -98,7 +98,7 @@ jobs:
         with:
           push: true
           file: paymentservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PAYMENT_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PAYMENT_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push paymentservice Docker image
         uses: docker/build-push-action@v2
@@ -113,7 +113,7 @@ jobs:
         with:
           push: true
           file: productservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PRODUCT_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.PRODUCT_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push productservice Docker image
         uses: docker/build-push-action@v2
@@ -128,7 +128,7 @@ jobs:
         with:
           push: true
           file: shippingservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SHIPPING_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.SHIPPING_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push shippingservice Docker image
         uses: docker/build-push-action@v2
@@ -143,7 +143,7 @@ jobs:
         with:
           push: true
           file: userservice.build.dockerfile
-          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_BUILD_IMAGE }}:${{ env.TAG }}
+          tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_BUILD_IMAGE }}:1.0.0
 
       - name: Build and Push userservice Docker image
         uses: docker/build-push-action@v2
