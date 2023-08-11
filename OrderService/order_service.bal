@@ -4,7 +4,7 @@ import ballerina/io;
 
 http:Client userServiceClient = check new ("http://34.136.11.235/userservice");
 http:Client shippingServiceClient = check new ("http://34.136.11.235/shippingservice");
-http:Client cartServiceClient = check new ("http://34.136.11.235/cartservice");
+http:Client cartServiceClient = check new ("http://localhost:9233/cartservice");
 http:Client paymentServiceClient = check new ("http://34.136.11.235/paymentservice");
 
 @display {

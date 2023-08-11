@@ -61,7 +61,7 @@ dependencies = [
 [[package]]
 org = "ballerina"
 name = "http"
-version = "2.9.0"
+version = "2.9.2"
 dependencies = [
 	{org = "ballerina", name = "auth"},
 	{org = "ballerina", name = "cache"},
@@ -195,7 +195,7 @@ dependencies = [
 [[package]]
 org = "ballerina"
 name = "log"
-version = "2.8.0"
+version = "2.8.1"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
@@ -283,7 +283,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "jaeger"
-version = "0.2.8"
+version = "0.3.0"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
@@ -294,8 +294,8 @@ modules = [
 ]
 
 [[package]]
-org = "ecommerce_sample"
-name = "user_service"
+org = "hipstershop"
+name = "UserService"
 version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "http"},
@@ -303,6 +303,6 @@ dependencies = [
 	{org = "ballerinax", name = "jaeger"}
 ]
 modules = [
-	{org = "ecommerce_sample", packageName = "user_service", moduleName = "user_service"}
+	{org = "hipstershop", packageName = "UserService", moduleName = "UserService"}
 ]
 
