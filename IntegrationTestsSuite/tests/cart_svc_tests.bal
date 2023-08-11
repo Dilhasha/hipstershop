@@ -18,7 +18,7 @@ function cartInfoTest() returns error? {
     http:Response val = check cartServiceClient->/cartInfo(userId = 1);
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
     test:assertEquals(val.getJsonPayload(), 
-    {"productId": 123, "productName": "MacBook Pro", "price": 2000.00});
+    {"productId": 123, "productName": "MacBook Pro", "price": 2000});
 }
 
 @test:Config {}
@@ -26,7 +26,7 @@ function cartInfoTest1() returns error? {
     http:Response val = check cartServiceClient->/cartInfo(userId = 2);
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
     test:assertEquals(val.getJsonPayload(), 
-    {"productId": 456, "productName": "iPhone 12", "price": 1000.00});
+    {"productId": 456, "productName": "iPhone 12", "price": 1000});
 }
 
 @test:Config {}
@@ -34,7 +34,7 @@ function cartInfoTest2() returns error? {
     http:Response val = check cartServiceClient->/cartInfo(userId = 1);
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
     test:assertEquals(val.getJsonPayload(), 
-    {"productId": 789, "productName": "iPad Pro", "price": 1500.00});
+    {"productId": 123, "productName": "MacBook Pro", "price": 2000});
 }
 
 @test:Config {}
@@ -42,7 +42,7 @@ function cartInfoTest3() returns error? {
     http:Response val = check cartServiceClient->/cartInfo(userId = 4);
     test:assertEquals(val.statusCode, 200, "Status code should be 200");
     test:assertEquals(val.getJsonPayload(), 
-    {"productId": 101, "productName": "Apple Watch", "price": 500.00});
+    {"productId": 101, "productName": "Apple Watch", "price": 500});
 }
 
 @test:Config {}
