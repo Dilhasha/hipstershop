@@ -21,7 +21,7 @@ env:
   SHIPPING_SERVICE_IMAGE: shippingservice
   USER_SERVICE_BUILD_IMAGE: build-userservice
   USER_SERVICE_IMAGE: userservice
-  TAG: 1.0.5
+  TAG: 1.0.6
   REPO: Dilhasha/hipstershop
   PR_NUMBER: ${{ github.event.pull_request.number }}
 
