@@ -1,5 +1,6 @@
 import ballerinax/jaeger as _;
 import ballerina/http;
+import ballerina/lang.runtime;
 import ballerina/io;
 
 http:Client userServiceClient = check new ("http://34.136.11.235/userservice");
@@ -58,6 +59,7 @@ function initiatePayment(int orderId) returns int {
 }
 
 function initiateShipment(int orderId) returns int {
+    runtime:sleep(10);
     http:Response|error val = shippingServiceClient->post("/shipment?orderId=" + orderId.toString(), {});
     if val is error {
         io:println("Error in initiating shipment");
