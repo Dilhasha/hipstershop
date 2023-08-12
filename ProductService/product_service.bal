@@ -10,7 +10,7 @@ service /productservice on new http:Listener(9232) {
 
     map<json> productMap = {
         "123": {"productId": 123, "productName": "MacBook Pro", "price": 2000},
-        "456": {"productId": 456, "productName": "iPhone 12", "price": 1000},
+        "456": {"productId": 456, "productName": "iPhone 11", "price": 1000},
         "789": {"productId": 789, "productName": "iPad Pro", "price": 1500},
         "101": {"productId": 101, "productName": "Apple Watch", "price": 500}
     };
