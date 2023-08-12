@@ -26,24 +26,6 @@ env:
   PR_NUMBER: ${{ github.event.pull_request.number }}
 
 jobs:
-  get-pr-details:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Get PR Number
-      run: |
-        PR_NUMBER=$(echo "${{ github.event.head_commit.message }}" | awk '/Merge pull request #[0-9]+/ {print $4}' | grep -oE '[0-9]+')
-        if [ "$PR_NUMBER" != "" ]; then
-          echo "PR Number is $PR_NUMBER"
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-        else
-          echo "Not a PR merge commit."
-          exit 0
-        fi 
-   
   setup-build-publish:
     name: Setup, Build and Publish
     runs-on: ubuntu-latest
@@ -169,6 +151,17 @@ jobs:
           file: userservice.dockerfile
           tags: gcr.io/${{ env.PROJECT_ID }}/${{ env.USER_SERVICE_IMAGE }}:${{ env.TAG }}
 
+      - name: Get PR Number
+        run: |
+          PR_NUMBER=$(echo "${{ github.event.head_commit.message }}" | awk '/Merge pull request #[0-9]+/ {print $4}' | grep -oE '[0-9]+')
+          if [ "$PR_NUMBER" != "" ]; then
+            echo "PR Number is $PR_NUMBER"
+            echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+          else
+            echo "Not a PR merge commit."
+            exit 0
+          fi 
+   
       - name: Perform static analysis and record details for this PR
         run: |
           curl -X POST "http://199.223.232.45:8080/configured-repos?repoName=$REPO&pr=$PR_NUMBER&observabilityURL=http://34.136.11.235"
