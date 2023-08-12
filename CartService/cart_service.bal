@@ -21,7 +21,7 @@ service /cartservice on new http:Listener(9233) {
     }
 
     resource function get cartInfo(int userId) returns json|error {
-        io:println("checkout the cart for user: " + userId.toString());
+        io:println("checkout cart for user: " + userId.toString());
         int? productId = self.userMap[userId.toString()];
         if productId is () {
             return error("Invalid user id");
