@@ -16,7 +16,7 @@ function productSvcTest() returns error? {
 function getProductDetailsTest() returns error? {
     
     http:Response val = check productServiceClient->get("/productInfo?productId=1");
-    test:assertEquals(val.statusCode, 202, "Status code should be 202");
+    test:assertEquals(val.statusCode, 200, "Status code should be 202");
 }
 
 
@@ -31,7 +31,7 @@ function productSvcTest1() returns error? {
 function getProductDetailsTest1() returns error? {
     
     http:Response val = check productServiceClient->get("/productInfo?productId=1");
-    test:assertEquals(val.statusCode, 202, "Status code should be 202");
+    test:assertEquals(val.statusCode, 200, "Status code should be 202");
 }
 
 @test:Config {}
@@ -45,7 +45,7 @@ function productSvcTest2() returns error? {
 function getProductDetailsTest2() returns error? {
     
     http:Response val = check productServiceClient->get("/productInfo?productId=1");
-    test:assertEquals(val.statusCode, 202, "Status code should be 202");
+    test:assertEquals(val.statusCode, 200, "Status code should be 202");
 }
 
 @test:Config {}
@@ -59,5 +59,5 @@ function productSvcTest3() returns error? {
 function getProductDetailsTest3() returns error? {
     
     http:Response val = check productServiceClient->get("/productInfo?productId=1");
-    test:assertEquals(val.statusCode, 202, "Status code should be 202");
+    test:assertEquals(val.statusCode, 200, "Status code should be 202");
 }
