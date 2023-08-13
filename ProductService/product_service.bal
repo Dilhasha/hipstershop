@@ -2,7 +2,6 @@ import ballerinax/jaeger as _;
 import ballerina/http;
 import ballerina/io;
 
-
 type Product record {|
     int productId;
     string productName;
@@ -13,21 +12,16 @@ type Product record {|
     label: "productservice"
 }
 service /productservice on new http:Listener(9232) {
-    map<json> productMap = {
+    map<Product> productMap = {
         "123": {"productId": 123, "productName": "MacBook Pro", "price": 2000},
         "456": {"productId": 456, "productName": "iPhone 12", "price": 1000},
         "789": {"productId": 789, "productName": "iPad Pro", "price": 1500},
         "101": {"productId": 101, "productName": "Apple Watch", "price": 500}
     };
 
-    function getTaxAmount() returns int {
-        return 100;
-    }
-
-    resource function get productInfo(int productId) returns json|error {
-        Product product = check self.productMap[productId.toString()].ensureType();
-        product["price"] = product["price"] + self.getTaxAmount();
-        return product;
+    resource function get productInfo(int productId) returns json {
+        Product? item = self.productMap[productId.toString()];
+        return item is () ? {} : item;
     }
 
     resource function get productCatalog() returns json {
