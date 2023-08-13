@@ -19,9 +19,21 @@ service /productservice on new http:Listener(9232) {
         "101": {"productId": 101, "productName": "Apple Watch", "price": 500}
     };
 
+    function getTax(string productId) returns int {
+        if productId == "456" {
+            return 200;
+        } else {
+            return 0;
+        }
+    }
+
     resource function get productInfo(int productId) returns json {
         Product? item = self.productMap[productId.toString()];
-        return item is () ? {} : item;
+        if item is () {
+            return {};
+        }
+        item.price = item.price + self.getTax(productId.toString());
+        return item;
     }
 
     resource function get productCatalog() returns json {
