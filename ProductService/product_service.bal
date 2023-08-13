@@ -28,7 +28,7 @@ service /productservice on new http:Listener(9232) {
     }
 
     resource function get productInfo(int productId) returns json {
-        Product? item = self.productMap[productId.toString()];
+        Product? item = self.productMap[productId.toString()].clone();
         if item is () {
             return {};
         }
